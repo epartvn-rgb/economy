@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Báo cáo Chiến lược Đầu tư Việt Nam | Triển vọng đến Q1/2027</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --navy:#0a2540;
+    --navy-dark:#061829;
+    --blue:#1554a0;
+    --blue-light:#3d6f9e;
+    --lightblue:#e8f0fa;
+    --gold:#c9a227;
+    --gold-light:#fdf0c9;
+    --red:#c0392b;
+    --green:#1e8449;
+    --gray:#f4f6f9;
+    --border:#d9e2ec;
+    --text:#1a2a3a;
+    --text-light:#5a6b7f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Segoe UI','Helvetica Neue',Arial,'Times New Roman',serif;
+    color:var(--text);
+    line-height:1.75;
+    background:#eef2f7;
+    font-size:15px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .container{
+    max-width:1240px;
+    margin:0 auto;
+    background:#fff;
+    box-shadow:0 0 60px rgba(10,37,64,0.12);
+  }
+
+  /* ============ COVER PAGE ============ */
+  .cover{
+    background:linear-gradient(135deg,#061829 0%,#0a2540 35%,#1554a0 100%);
+    color:#fff;
+    padding:100px 70px 70px;
+    position:relative;
+    overflow:hidden;
+    min-height:520px;
+  }
+  .cover::before{
+    content:"";
+    position:absolute;
+    top:-40%;right:-15%;
+    width:750px;height:750px;
+    background:radial-gradient(circle,rgba(201,162,39,0.22),transparent 65%);
+    border-radius:50%;
+  }
+  .cover::after{
+    content:"";
+    position:absolute;
+    bottom:-30%;left:-10%;
+    width:500px;height:500px;
+    background:radial-gradient(circle,rgba(30,132,73,0.18),transparent 65%);
+    border-radius:50%;
+  }
+  .cover-tag{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--navy-dark);
+    font-weight:800;
+    font-size:11px;
+    letter-spacing:3px;
+    padding:8px 20px;
+    border-radius:3px;
+    margin-bottom:30px;
+    text-transform:uppercase;
+    position:relative;
+    z-index:2;
+  }
+  .cover h1{
+    font-size:44px;
+    line-height:1.2;
+    font-weight:800;
+    margin-bottom:20px;
+    max-width:980px;
+    position:relative;
+    z-index:2;
+    letter-spacing:-0.5px;
+  }
+  .cover h1 .accent{color:var(--gold);}
+  .cover h2{
+    font-size:19px;
+    font-weight:400;
+    color:#c9d9ec;
+    margin-bottom:50px;
+    max-width:900px;
+    position:relative;
+    z-index:2;
+    line-height:1.6;
+  }
+  .cover-meta{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+    position:relative;
+    z-index:2;
+    border-top:1px solid rgba(255,255,255,0.15);
+    padding-top:30px;
+  }
+  .cover-meta div{font-size:12px;color:#8fb0d4;text-transform:uppercase;letter-spacing:1px;}
+  .cover-meta strong{display:block;color:#fff;font-size:16px;margin-top:8px;font-weight:700;letter-spacing:0;text-transform:none;}
+
+  /* ============ DISCLAIMER TOP ============ */
+  .disclaimer-top{
+    background:#fff8e1;
+    border-bottom:1px solid var(--gold);
+    padding:14px 70px;
+    font-size:12px;
+    color:#7a5f10;
+    text-align:center;
+    letter-spacing:0.3px;
+  }
+
+  /* ============ TOC ============ */
+  .toc{
+    background:var(--gray);
+    padding:50px 70px;
+    border-bottom:1px solid var(--border);
+  }
+  .toc h3{
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    color:var(--blue);
+    margin-bottom:26px;
+    font-weight:800;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .toc h3::before{
+    content:"";
+    width:30px;height:3px;
+    background:var(--gold);
+    border-radius:2px;
+  }
+  .toc-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:4px 50px;
+  }
+  .toc-grid a{
+    color:var(--text);
+    text-decoration:none;
+    font-size:14px;
+    padding:10px 0;
+    border-bottom:1px dotted #cbd5e0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:all .2s;
+    font-weight:500;
+  }
+  .toc-grid a:hover{color:var(--blue);padding-left:8px;border-bottom-color:var(--blue);}
+  .toc-grid a span{color:var(--blue);font-weight:800;font-variant-numeric:tabular-nums;}
+
+  /* ============ CONTENT ============ */
+  .content{padding:60px 70px;}
+
+  section{margin-bottom:70px;scroll-margin-top:20px;}
+
+  h2.section-title{
+    font-size:28px;
+    color:var(--navy);
+    font-weight:800;
+    padding-bottom:16px;
+    border-bottom:3px solid var(--gold);
+    margin-bottom:36px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    letter-spacing:-0.3px;
+  }
+  h2.section-title .num{
+    background:linear-gradient(135deg,var(--navy),var(--blue));
+    color:#fff;
+    width:52px;height:52px;
+    border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;
+    flex-shrink:0;
+    font-weight:800;
+    box-shadow:0 4px 12px rgba(21,84,160,0.25);
+  }
+
+  h3{
+    font-size:20px;
+    color:var(--blue);
+    margin:38px 0 16px;
+    font-weight:700;
+    letter-spacing:-0.2px;
+  }
+  h3::before{
+    content:"▪ ";
+    color:var(--gold);
+    font-weight:900;
+  }
+  h4{
+    font-size:16px;
+    color:var(--navy);
+    margin:24px 0 12px;
+    font-weight:700;
+  }
+  p{margin-bottom:16px;text-align:justify;line-height:1.85;}
+  ul,ol{margin:14px 0 20px 28px;}
+  li{margin-bottom:10px;line-height:1.75;}
+  strong{color:var(--navy);font-weight:700;}
+  em{color:var(--text-light);}
+
+  /* ============ CALLOUTS ============ */
+  .callout{
+    background:var(--lightblue);
+    border-left:4px solid var(--blue);
+    padding:22px 28px;
+    margin:26px 0;
+    border-radius:0 10px 10px 0;
+    font-size:14.5px;
+    line-height:1.8;
+    box-shadow:0 2px 8px rgba(21,84,160,0.06);
+  }
+  .callout.gold{background:#fdf6e3;border-color:var(--gold);}
+  .callout.red{background:#fdecea;border-color:var(--red);}
+  .callout.green{background:#e8f8ee;border-color:var(--green);}
+  .callout strong{
+    display:block;
+    margin-bottom:10px;
+    font-size:15px;
+    color:var(--navy);
+    letter-spacing:0.2px;
+  }
+
+  /* ============ TABLES ============ */
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:24px 0;
+    font-size:14px;
+    box-shadow:0 1px 6px rgba(0,0,0,0.05);
+    border-radius:6px;
+    overflow:hidden;
+  }
+  th{
+    background:linear-gradient(135deg,var(--navy),var(--blue));
+    color:#fff;
+    padding:14px 16px;
+    text-align:left;
+    font-weight:700;
+    font-size:12.5px;
+    text-transform:uppercase;
+    letter-spacing:0.7px;
+  }
+  td{
+    padding:13px 16px;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+  }
+  tr:nth-child(even) td{background:#f9fbfd;}
+  tr:hover td{background:var(--lightblue);}
+  .num-cell{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;}
+
+  /* ============ CHARTS ============ */
+  .chart-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:28px;
+    margin:30px 0;
+    box-shadow:0 4px 16px rgba(10,37,64,0.06);
+  }
+  .chart-card h4{
+    margin-top:0;
+    font-size:15px;
+    color:var(--navy);
+    padding-bottom:14px;
+    border-bottom:1px solid var(--border);
+    margin-bottom:22px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .chart-card h4::before{
+    content:"";
+    width:6px;height:20px;
+    background:var(--gold);
+    border-radius:3px;
+  }
+  .chart-wrap{position:relative;height:380px;}
+  .chart-wrap.tall{height:440px;}
+  .chart-note{
+    font-size:12.5px;
+    color:var(--text-light);
+    margin-top:14px;
+    font-style:italic;
+    padding-top:10px;
+    border-top:1px solid var(--border);
+  }
+
+  /* ============ KPI CARDS ============ */
+  .kpi-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin:30px 0;
+  }
+  .kpi{
+    background:linear-gradient(160deg,#f6f9fd,#eaf1fa);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:24px 18px;
+    text-align:center;
+    border-top:4px solid var(--blue);
+    transition:transform .2s,box-shadow .2s;
+  }
+  .kpi:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(21,84,160,0.12);}
+  .kpi .label{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1.2px;
+    color:var(--text-light);
+    margin-bottom:10px;
+    font-weight:700;
+  }
+  .kpi .value{
+    font-size:30px;
+    font-weight:800;
+    color:var(--navy);
+    line-height:1;
+    font-variant-numeric:tabular-nums;
+  }
+  .kpi .sub{
+    font-size:12px;
+    color:var(--green);
+    margin-top:10px;
+    font-weight:700;
+  }
+  .kpi .sub.neg{color:var(--red);}
+
+  /* ============ SCENARIO CARDS ============ */
+  .scenario-card{
+    border-radius:14px;
+    padding:30px;
+    margin:28px 0;
+    border-left:6px solid;
+    box-shadow:0 4px 16px rgba(0,0,0,0.06);
+  }
+  .scenario-base{background:linear-gradient(135deg,#eaf4ff,#f6faff);border-color:#1554a0;}
+  .scenario-bull{background:linear-gradient(135deg,#e8f8ee,#f4fcf7);border-color:#1e8449;}
+  .scenario-bear{background:linear-gradient(135deg,#fdecea,#fef6f5);border-color:#c0392b;}
+  .scenario-card h4{
+    font-size:19px;
+    margin-top:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:var(--navy);
+  }
+  .prob-badge{
+    font-size:13px;
+    padding:6px 18px;
+    border-radius:20px;
+    color:#fff;
+    font-weight:800;
+    letter-spacing:0.5px;
+  }
+  .prob-base{background:linear-gradient(135deg,#1554a0,#3d6f9e);}
+  .prob-bull{background:linear-gradient(135deg,#1e8449,#2ecc71);}
+  .prob-bear{background:linear-gradient(135deg,#c0392b,#e74c3c);}
+
+  /* ============ RISK MATRIX ============ */
+  .risk-matrix{
+    display:grid;
+    grid-template-columns:auto 1fr 1fr 1fr;
+    gap:6px;
+    margin:28px 0;
+    font-size:13px;
+  }
+  .risk-cell{
+    padding:16px 12px;
+    text-align:center;
+    border-radius:8px;
+    font-weight:600;
+    min-height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:6px;
+    line-height:1.3;
+  }
+  .risk-low{background:linear-gradient(135deg,#d4edda,#e8f8ee);color:#155724;border:1px solid #a8d5b5;}
+  .risk-med{background:linear-gradient(135deg,#fff3cd,#fef9e7);color:#856404;border:1px solid #f0d888;}
+  .risk-high{background:linear-gradient(135deg,#f8d7da,#fdecea);color:#721c24;border:1px solid #e8a8ae;}
+  .risk-head{
+    background:linear-gradient(135deg,var(--navy),var(--blue));
+    color:#fff;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font-weight:800;
+  }
+  .risk-label{
+    background:var(--gray);
+    color:var(--navy);
+    font-size:11.5px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    border:1px solid var(--border);
+  }
+
+  /* ============ RECOMMENDATIONS ============ */
+  .rec-block{
+    background:linear-gradient(135deg,#f9fbfd,#f4f6f9);
+    border-radius:12px;
+    padding:28px;
+    margin:24px 0;
+    border-top:4px solid var(--gold);
+    box-shadow:0 2px 10px rgba(0,0,0,0.04);
+  }
+  .rec-block h4{color:var(--navy);margin-top:0;font-size:17px;}
+
+  /* ============ BADGES ============ */
+  .badge{
+    display:inline-block;
+    font-size:11px;
+    font-weight:800;
+    padding:4px 12px;
+    border-radius:14px;
+    text-transform:uppercase;
+    letter-spacing:0.6px;
+  }
+  .badge-blue{background:#d6e8fb;color:#1554a0;}
+  .badge-green{background:#d4edda;color:#155724;}
+  .badge-red{background:#f8d7da;color:#721c24;}
+  .badge-gold{background:#fdf0c9;color:#8a6d1a;}
+
+  /* ============ FOOTER ============ */
+  .footer{
+    background:linear-gradient(135deg,var(--navy-dark),var(--navy));
+    color:#a8c0dd;
+    padding:50px 70px;
+    font-size:13px;
+    line-height:1.8;
+  }
+  .footer strong{color:#fff;display:block;margin-bottom:12px;font-size:15px;letter-spacing:0.3px;}
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+  }
+
+  /* ============ DIVIDERS ============ */
+  .divider{
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--border),transparent);
+    margin:50px 0;
+  }
+
+  /* ============ SIGNATURE BOX ============ */
+  .signature-box{
+    text-align:center;
+    margin-top:50px;
+    padding:36px;
+    background:linear-gradient(135deg,#f6f9fd,#eaf1fa);
+    border-radius:14px;
+    border-top:5px solid var(--gold);
+    box-shadow:0 4px 20px rgba(10,37,64,0.06);
+  }
+  .signature-box .end-tag{
+    font-size:13px;
+    color:var(--text-light);
+    font-style:italic;
+    margin-bottom:12px;
+    letter-spacing:2px;
+  }
+  .signature-box .report-name{
+    font-size:17px;
+    color:var(--navy);
+    font-weight:800;
+    margin:0;
+    letter-spacing:-0.2px;
+  }
+  .signature-box .report-meta{
+    font-size:13px;
+    color:var(--text-light);
+    margin-top:10px;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media(max-width:900px){
+    .toc-grid,.kpi-grid,.cover-meta,.footer-grid{grid-template-columns:1fr;}
+    .cover,.content,.toc,.footer,.disclaimer-top{padding-left:26px;padding-right:26px;}
+    .cover h1{font-size:28px;}
+    .cover h2{font-size:16px;}
+    .risk-matrix{font-size:11px;}
+    .chart-wrap{height:320px;}
+    h2.section-title{font-size:22px;}
+    h2.section-title .num{width:42px;height:42px;font-size:16px;}
+  }
+
+  /* ============ PRINT ============ */
+  @media print{
+    body{background:#fff;}
+    .container{box-shadow:none;}
+    .chart-card,.kpi,.scenario-card,.rec-block{page-break-inside:avoid;}
+    section{page-break-inside:auto;}
+    h2.section-title{page-break-after:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+  <div class="cover-tag">Báo cáo Chiến lược Cấp cao · Investment Strategy Report</div>
+  <h1>Triển vọng Thị trường <span class="accent">Tài chính – Chứng khoán – Bất động sản</span> Việt Nam đến Tháng 3/2027</h1>
+  <h2>Phân tích đa chiều, ứng dụng mô hình định lượng (Monte Carlo, ARIMA-GARCH, VAR) và khuyến nghị chiến lược cho Nhà đầu tư – Doanh nghiệp – Chính phủ</h2>
+  <div class="cover-meta">
+    <div>Ngày phát hành<strong>01/10/2026</strong></div>
+    <div>Kỳ dự báo<strong>Q4/2026 – Q1/2027</strong></div>
+    <div>Phạm vi<strong>Việt Nam (VN-Index, BĐS, TPDN)</strong></div>
+    <div>Mức độ tin cậy<strong>Cao (Đa mô hình)</strong></div>
+  </div>
+</div>
+
+<!-- ==================== DISCLAIMER ==================== -->
+<div class="disclaimer-top">
+  Tài liệu nghiên cứu dành cho nhà đầu tư tổ chức và cá nhân · Không phải khuyến nghị mua/bán cụ thể · Vui lòng đọc kỹ tuyên bố miễn trách nhiệm ở cuối báo cáo
+</div>
+
+<!-- ==================== TOC ==================== -->
+<div class="toc">
+  <h3>Mục lục báo cáo</h3>
+  <div class="toc-grid">
+    <a href="#s1">I. Tóm tắt <span>01</span></a>
+    <a href="#s2">II. Bối cảnh kinh tế vĩ mô <span>02</span></a>
+    <a href="#s3">III. Thị trường chứng khoán <span>03</span></a>
+    <a href="#s4">IV. Thị trường bất động sản <span>04</span></a>
+    <a href="#s5">V. Thị trường trái phiếu doanh nghiệp <span>05</span></a>
+    <a href="#s6">VI. Mô hình định lượng &amp; dự báo <span>06</span></a>
+    <a href="#s7">VII. Ma trận rủi ro <span>07</span></a>
+    <a href="#s8">VIII. Kịch bản đến 3/2027 <span>08</span></a>
+    <a href="#s9">IX. Khuyến nghị chiến lược <span>09</span></a>
+    <a href="#s10">X. Phụ lục dữ liệu <span>10</span></a>
+    <a href="#s11">XI. Kết luận và Tầm nhìn chiến lược <span>11</span></a>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ==================== SECTION 1 - TÓM TẮT ==================== -->
+<section id="s1">
+  <h2 class="section-title"><span class="num">I</span>Tóm tắt</h2>
+
+  <div class="callout gold">
+    <strong>Luận điểm đầu tư cốt lõi (Investment Thesis)</strong>
+    Việt Nam đang bước vào giai đoạn <b>"tăng trưởng chất lượng cao"</b> với ba trụ cột: (1) chu kỳ nới lỏng tiền tệ toàn cầu hỗ trợ tỷ giá và dòng vốn; (2) cú hích lịch sử từ nâng hạng FTSE Russell kéo dòng vốn ngoại quay trở lại; (3) chu kỳ tái cấu trúc bất động sản hướng về nhu cầu thực. Chúng tôi duy trì <b>quan điểm tích cực có chọn lọc</b> cho giai đoạn đến Q1/2027.
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="label">GDP 2026 (dự báo)</div>
+      <div class="value">7,8%</div>
+      <div class="sub">▲ ADB nâng dự báo</div>
+    </div>
+    <div class="kpi">
+      <div class="label">VN-Index mục tiêu</div>
+      <div class="value">2.099</div>
+      <div class="sub">▲ +27,5% so cuối 2025</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Tỷ giá USD/VND</div>
+      <div class="value">26.500</div>
+      <div class="sub">▼ Biến động ±1%</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Lạm phát 2026</div>
+      <div class="value">4,3%</div>
+      <div class="sub">► Trong tầm kiểm soát</div>
+    </div>
+  </div>
+
+  <h3>1.1. Ba thông điệp chính</h3>
+
+  <div class="callout green">
+    <strong>① Vĩ mô – Nền tảng vững chắc nhất trong một thập kỷ</strong>
+    Thặng dư cán cân thanh toán tổng thể (BOP) dự phóng đạt 47,8 tỷ USD — cao nhất lịch sử. Tỷ giá được dự báo biến động chỉ ±1%, mở ra dư địa cho NHNN duy trì lãi suất thấp và ổn định. Đây là nền tảng quan trọng để thị trường tài sản rủi ro (chứng khoán, BĐS) phục hồi bền vững.
+  </div>
+
+  <div class="callout">
+    <strong>② Chứng khoán – Chu kỳ nâng hạng mở ra "siêu chu kỳ" dòng vốn</strong>
+    FTSE Russell chính thức nâng hạng Việt Nam (21/9/2026), dự kiến thu hút 1,5–6 tỷ USD. Mô hình Monte Carlo cho thấy VN-Index có 50% xác suất đạt mức ≥1.943 điểm đến cuối 2026 và 68% xác suất vượt 1.750 điểm.
+  </div>
+
+  <div class="callout red">
+    <strong>③ Bất động sản – Phân hóa sâu, rủi ro lãi suất và đáo hạn trái phiếu</strong>
+    Áp lực đáo hạn 116.535 tỷ đồng trái phiếu BĐS trong phần còn lại của 2026 và lãi suất vay mua nhà leo lên 13–17%/năm là hai rủi ro then chốt. Chúng tôi khuyến nghị <b>chỉ đầu tư vào phân khúc nhu cầu thực, pháp lý hoàn chỉnh</b>.
+  </div>
+
+  <h3>1.2. Bảng tổng hợp dự báo</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Chỉ tiêu</th>
+        <th class="num-cell">2025 (ước)</th>
+        <th class="num-cell">2026 (dự báo)</th>
+        <th class="num-cell">3/2027 (dự báo)</th>
+        <th>Xu hướng</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Tăng trưởng GDP (%)</td><td class="num-cell">7,5</td><td class="num-cell">7,8 – 9,5</td><td class="num-cell">7,6 – 11,0</td><td><span class="badge badge-green">Tăng</span></td></tr>
+      <tr><td>Lạm phát (%)</td><td class="num-cell">3,5</td><td class="num-cell">4,3 – 4,4</td><td class="num-cell">3,3 – 4,0</td><td><span class="badge badge-gold">Ổn định</span></td></tr>
+      <tr><td>Tỷ giá USD/VND</td><td class="num-cell">26.550</td><td class="num-cell">26.300 – 27.000</td><td class="num-cell">25.900 – 27.100</td><td><span class="badge badge-green">Ổn định</span></td></tr>
+      <tr><td>Lãi suất tái cấp vốn (%)</td><td class="num-cell">4,5</td><td class="num-cell">4,5</td><td class="num-cell">4,5</td><td><span class="badge badge-blue">Giữ nguyên</span></td></tr>
+      <tr><td>Tăng trưởng tín dụng (%)</td><td class="num-cell">15</td><td class="num-cell">15 – 19</td><td class="num-cell">15 – 18</td><td><span class="badge badge-green">Mở rộng</span></td></tr>
+      <tr><td>VN-Index (điểm)</td><td class="num-cell">1.650</td><td class="num-cell">1.950 – 2.100</td><td class="num-cell">2.000 – 2.300</td><td><span class="badge badge-green">Tăng mạnh</span></td></tr>
+      <tr><td>Giá BĐS (chung cư Hà Nội, %)</td><td class="num-cell">+30</td><td class="num-cell">+10 – 15</td><td class="num-cell">+5 – 10</td><td><span class="badge badge-gold">Chậm lại</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ==================== SECTION 2 - VĨ MÔ ==================== -->
+<section id="s2">
+  <h2 class="section-title"><span class="num">II</span>Bối cảnh kinh tế vĩ mô</h2>
+
+  <h3>2.1. Tăng trưởng GDP – Ba kịch bản từ các tổ chức quốc tế</h3>
+  <p>Việt Nam đang duy trì đà tăng trưởng ấn tượng với sự phân hóa đáng chú ý trong dự báo giữa các tổ chức quốc tế. Tăng trưởng nửa đầu năm 2026 đạt 8,2%, cao hơn đáng kể mức 7,5% cùng kỳ năm trước. Động lực đến từ công nghiệp chế biến chế tạo (+9%), dòng vốn FDI chiếm 57% tổng vốn đăng ký mới, và khu vực dịch vụ (+8%).</p>
+
+  <div class="chart-card">
+    <h4>Biểu đồ 1 – Dự báo GDP Việt Nam 2025–2027 theo các tổ chức quốc tế</h4>
+    <div class="chart-wrap"><canvas id="chartGDP"></canvas></div>
+    <p class="chart-note">Nguồn: ADB (Asian Development Outlook 9/2026), Standard Chartered, Ngân hàng Nhà nước. Đơn vị: %.</p>
+  </div>
+
+  <h3>2.2. Lạm phát – Trong tầm kiểm soát nhưng cần thận trọng</h3>
+  <p>Lạm phát đang trong xu hướng hạ nhiệt dần. Kết quả điều tra kỳ vọng lạm phát quý III/2026 cho thấy bình quân năm 2026 so với năm 2025 là 4,59% và năm 2027 so với năm 2026 là 4,26%. Mục tiêu NHNN kiểm soát lạm phát bình quân khoảng 4,5% trong năm 2026 là khả thi.</p>
+
+  <div class="chart-card">
+    <h4>Biểu đồ 2 – Diễn biến lạm phát và mục tiêu (2023–2027)</h4>
+    <div class="chart-wrap"><canvas id="chartCPI"></canvas></div>
+    <p class="chart-note">Nguồn: ADB, Standard Chartered, NHNN. Đơn vị: %.</p>
+  </div>
+
+  <h3>2.3. Tỷ giá USD/VND – "Điểm sáng" của năm 2026</h3>
+  <p>Năm 2025 chứng kiến nhiều thách thức khi tỷ giá USD/VND tăng hơn 4,3%, đạt đỉnh 26.550 VND/USD (26/8/2025). Tuy nhiên, năm 2026 mang gam màu tích cực hơn khi <b>VPBankS dự báo biến động chỉ ±1%</b>, nhờ thặng dư BOP kỷ lục 47,8 tỷ USD.</p>
+
+  <div class="chart-card">
+    <h4>Biểu đồ 3 – Dự báo tỷ giá USD/VND theo quý (2026–2027)</h4>
+    <div class="chart-wrap tall"><canvas id="chartFX"></canvas></div>
+    <p class="chart-note">Nguồn: UOB Global Economics &amp; Markets Research, VPBankS, VNDirect. Đơn vị: VND/USD.</p>
+  </div>
+
+  <h3>2.4. Chính sách tiền tệ – Duy trì chủ động, linh hoạt</h3>
+  <p>NHNN duy trì lãi suất tái cấp vốn ở mức <b>4,50%</b> trong suốt năm 2026. Lãi suất huy động bình quân khoảng 5,7%/năm (giảm 26 điểm cơ bản so với tháng 3/2026). Tăng trưởng tín dụng toàn hệ thống được định hướng khoảng 19% cho năm 2026.</p>
+
+  <div class="callout">
+    <strong>Nhận định chuyên gia</strong>
+    Chính sách tiền tệ đang ở trạng thái "trung tính – hỗ trợ". Dư địa nới lỏng còn hạn chế, do đó <b>chính sách tài khóa</b> (đầu tư công, giảm thuế) sẽ đóng vai trò lực đẩy chính trong giai đoạn 2026–2027. Đây là cấu trúc chính sách phù hợp với giai đoạn tăng trưởng chất lượng cao.
+  </div>
+</section>
+
+<!-- ==================== SECTION 3 - CHỨNG KHOÁN ==================== -->
+<section id="s3">
+  <h2 class="section-title"><span class="num">III</span>Thị trường chứng khoán Việt Nam</h2>
+
+  <h3>3.1. Diễn biến và triển vọng VN-Index</h3>
+  <p>Tính đến tháng 9/2026, VN-Index giao dịch quanh vùng 1.850 điểm, VN30 ở mức 1.984 điểm. So với đáy tháng 4/2025, chỉ số đã phục hồi hơn 55%. Định giá P/E toàn thị trường ở mức 15,6 lần – tương đương trung bình 10 năm và hấp dẫn so với khu vực.</p>
+
+  <div class="chart-card">
+    <h4>Biểu đồ 4 – Dự báo VN-Index đến cuối 2026 theo các tổ chức</h4>
+    <div class="chart-wrap"><canvas id="chartVNIndex"></canvas></div>
+    <p class="chart-note">Nguồn: VNDirect, Maybank, KBSV, ACBS, VDSC, SSI Research. Đơn vị: điểm.</p>
+  </div>
+
+  <h3>3.2. Sự kiện nâng hạng FTSE Russell – Cú hích lịch sử</h3>
+  <p>Ngày 21/9/2026, FTSE Russell chính thức nâng hạng Việt Nam từ thị trường cận biên lên <b>thị trường mới nổi thứ cấp</b>. Lộ trình triển khai theo 4 giai đoạn với tỷ trọng 10% – 20% – 35% – 35%.</p>
+
+  <div class="chart-card">
+    <h4>Biểu đồ 5 – Lộ trình dòng vốn ngoại theo nâng hạng FTSE (2026–2027)</h4>
+    <div class="chart-wrap"><canvas id="chartFTSE"></canvas></div>
+    <p class="chart-note">Nguồn: FTSE Russell, VNDirect ước tính. Đơn vị: triệu USD.</p>
+  </div>
+
+  <h3>3.3. Nghịch lý khối ngoại – Bán ròng dù được nâng hạng</h3>
+  <p>Tuần đầu sau nâng hạng, khối ngoại bán ròng 4.341 tỷ đồng. Tỷ lệ sở hữu nước ngoài giảm xuống <b>13,2%</b> – mức đáy lịch sử. Nguyên nhân: room ngoại hạn chế, free-float chưa đạt chuẩn, tâm lý thận trọng toàn cầu. Tuy nhiên, dòng vốn nội với hơn 11 triệu tài khoản (10,6% dân số) đang hấp thụ hiệu quả.</p>
+
+  <div class="chart-card">
+    <h4>Biểu đồ 6 – Cơ cấu dòng vốn giao dịch trên thị trường chứng khoán</h4>
+    <div class="chart-wrap"><canvas id="chartFlow"></canvas></div>
+    <p class="chart-note">Nguồn: VNDirect, HOSE. Đơn vị: %.</p>
+  </div>
+</section>
+
+<!-- ==================== SECTION 4 - BẤT ĐỘNG SẢN ==================== -->
+<section id="s4">
+  <h2 class="section-title"><span class="num">IV</span>Thị trường bất động sản</h2>
+
+  <h3>4.1. Chu kỳ mới – Tăng trưởng thận trọng và chọn lọc</h3>
+  <p>Giai đoạn 2026–2027 đánh dấu bước chuyển sang chu kỳ tái cấu trúc, với tăng trưởng phân hóa rõ nét. Thị trường đang chuyển từ giai đoạn <i>"đẩy giá"</i> sang giai đoạn <i>"ra hàng"</i>, lấy giá trị thực làm thước đo cạnh tranh.</p>
+
+  <div class="chart-card">
+    <h4>Biểu đồ 7 – Giá căn hộ sơ cấp trung bình tại các đô thị lớn</h4>
+    <div class="chart-wrap tall"><canvas id="chartRE"></canvas></div>
+    <p class="chart-note">Nguồn: CBRE Việt Nam Q2/2026, One Mount, Savills. Đơn vị: triệu đồng/m².</p>
+  </div>
+
+  <h3>4.2. Nguồn cung và phân khúc</h3>
+  <p>Giai đoạn 2026–2027, nguồn cung căn hộ mới dự kiến đạt 35.000–40.000 căn/năm tại Hà Nội và 28.000–29.000 căn/năm tại TP.HCM. Trong Q2/2026, nguồn cung Hà Nội đạt ~9.300 căn (+23% YoY), TP.HCM đạt ~11.000 căn (+51% YoY).</p>
+
+  <h3>4.3. Lãi suất cho vay mua nhà – "Gánh nặng" gia tăng</h3>
+  <p>Lãi suất cho vay bình quân tháng 8/2026 ở mức <b>8,4–10,7%/năm</b>, tăng ~3 điểm phần trăm so với năm trước. Sau 12 tháng ưu đãi, lãi suất chuyển từ 8,5% lên <b>13,5%/năm</b> – khiến bài toán vay mua nhà trở nên nặng gánh hơn. Xu hướng chuyển từ mua sang thuê đang gia tăng ở nhóm người trẻ.</p>
+
+  <div class="callout red">
+    <strong>Cảnh báo rủi ro</strong>
+    Áp lực đáo hạn <b>116.535 tỷ đồng</b> trái phiếu BĐS trong phần còn lại của 2026 và lãi suất vay mua nhà leo lên 16–17% thực tế là hai rủi ro then chốt. Chúng tôi khuyến nghị nhà đầu tư <b>KHÔNG</b> sử dụng đòn bẩy cao (&gt;50%) trong giai đoạn này.
+  </div>
+
+  <h3>4.4. Tác động pháp lý</h3>
+  <p>Từ 2026, thị trường vận hành dưới Luật Đất đai 2024, Luật Nhà ở 2023, Luật Kinh doanh BĐS và bảng giá đất mới. <b>Nghị quyết 278/NQ-CP</b> yêu cầu quy định rõ thời hạn sử dụng nhà chung cư – điều này có thể ảnh hưởng đến định giá căn hộ cũ trong trung hạn.</p>
+</section>
+
+<!-- ==================== SECTION 5 - TRÁI PHIẾU ==================== -->
+<section id="s5">
+  <h2 class="section-title"><span class="num">V</span>Thị trường trái phiếu doanh nghiệp</h2>
+
+  <p>Quy mô thị trường TPDN lưu hành Q2/2026 đạt <b>1.458 nghìn tỷ đồng</b> (~11,3% GDP). 8 tháng đầu 2026, phát hành đạt 384.200 tỷ đồng (+2,7% YoY), trong đó BĐS chiếm 161.300 tỷ đồng (+147% YoY).</p>
+
+  <div class="chart-card">
+    <h4>Biểu đồ 8 – Cơ cấu phát hành trái phiếu doanh nghiệp 8T/2026 theo ngành</h4>
+    <div class="chart-wrap"><canvas id="chartBond"></canvas></div>
+    <p class="chart-note">Nguồn: VIS Rating, HNX. Đơn vị: %.</p>
+  </div>
+
+  <div class="callout">
+    <strong>Điểm cần lưu ý</strong>
+    Trong phần còn lại của 2026, <b>194.120 tỷ đồng</b> trái phiếu sẽ đáo hạn, trong đó <b>60% thuộc BĐS (116.535 tỷ đồng)</b>. Áp lực này cần được giám sát chặt chẽ, đặc biệt với các doanh nghiệp có đòn bẩy cao và dòng tiền yếu.
+  </div>
+</section>
+
+<!-- ==================== SECTION 6 - MÔ HÌNH ==================== -->
+<section id="s6">
+  <h2 class="section-title"><span class="num">VI</span>Mô hình định lượng và dự báo</h2>
+
+  <h3>6.1. Mô hình Monte Carlo cho VN-Index</h3>
+  <p>Chúng tôi thực hiện 10.000 kịch bản mô phỏng Monte Carlo với các tham số đầu vào: lợi suất kỳ vọng 18%/năm (tăng trưởng lợi nhuận doanh nghiệp), độ lệch chuẩn 25% (biến động lịch sử VN-Index), horizon 15 tháng (đến 3/2027).</p>
+
+  <div class="chart-card">
+    <h4>Biểu đồ 9 – Phân phối xác suất VN-Index theo mô hình Monte Carlo (10.000 kịch bản)</h4>
+    <div class="chart-wrap tall"><canvas id="chartMC"></canvas></div>
+    <p class="chart-note">Mô hình: Geometric Brownian Motion với μ=18%, σ=25%. Kết quả: P5=1.550, P50=1.943, P95=2.400.</p>
+  </div>
+
+  <h3>6.2. Bảng phân vị mô phỏng</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Phân vị</th>
+        <th class="num-cell">Mức điểm</th>
+        <th class="num-cell">Xác suất</th>
+        <th>Diễn giải kinh tế</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><b>P5</b> (Bi quan)</td><td class="num-cell">1.550</td><td class="num-cell">5%</td><td>Suy thoái toàn cầu, địa chính trị xấu</td></tr>
+      <tr><td><b>P25</b></td><td class="num-cell">1.750</td><td class="num-cell">25%</td><td>Điều chỉnh kéo dài, dòng ngoại rút</td></tr>
+      <tr><td><b>P50</b> (Trung vị)</td><td class="num-cell">1.943</td><td class="num-cell">50%</td><td>Kịch bản cơ sở – tăng trưởng ổn định</td></tr>
+      <tr><td><b>P75</b></td><td class="num-cell">2.150</td><td class="num-cell">25%</td><td>Tăng trưởng mạnh, dòng ngoại tích cực</td></tr>
+      <tr><td><b>P95</b> (Lạc quan)</td><td class="num-cell">2.400</td><td class="num-cell">5%</td><td>Bùng nổ + nâng hạng MSCI</td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.3. Mô hình ARIMA-GARCH cho biến động</h3>
+  <p>Nghiên cứu ứng dụng ARIMA (2,1,2) kết hợp GARCH(1,1) cho thấy biến động VN-Index có tính "clustering" rõ nét. Kết hợp ARIMA-SVR cải thiện độ chính xác dự báo do xử lý được cả thành phần tuyến tính và phi tuyến tính.</p>
+
+  <div class="chart-card">
+    <h4>Biểu đồ 10 – Dự báo biến động (Volatility) VN-Index theo GARCH(1,1)</h4>
+    <div class="chart-wrap"><canvas id="chartGarch"></canvas></div>
+    <p class="chart-note">Mô hình: GARCH(1,1) với dữ liệu lịch sử 2015–2026. Đơn vị: %.</p>
+  </div>
+
+  <h3>6.4. Mô hình VAR – Phân tích tương tác vĩ mô</h3>
+  <p>Mô hình Vector Autoregression cho thấy:</p>
+  <ul>
+    <li>Tác động của <b>tỷ giá</b> lên VN-Index có độ trễ 1–2 quý</li>
+    <li><b>Lãi suất</b> có tác động ngược chiều mạnh nhất đến chứng khoán</li>
+    <li><b>GDP</b> tăng trưởng tác động tích cực với độ trễ 2–3 quý</li>
+  </ul>
+
+  <h3>6.5. Định giá theo mô hình P/E</h3>
+  <div class="callout gold">
+    <strong>Công thức định giá</strong>
+    VN-Index mục tiêu = EPS dự báo × P/E mục tiêu<br>
+    = EPS<sub>2026</sub> × 15,6 = <b>2.099 điểm</b> (mức P/E trung bình 10 năm, tương đương định giá khu vực)
+  </div>
+</section>
+
+<!-- ==================== SECTION 7 - MA TRẬN RỦI RO ==================== -->
+<section id="s7">
+  <h2 class="section-title"><span class="num">VII</span>Ma trận rủi ro</h2>
+
+  <div class="chart-card">
+    <h4>Biểu đồ 11 – Bản đồ nhiệt rủi ro (Xác suất × Tác động)</h4>
+    <div class="chart-wrap tall"><canvas id="chartRisk"></canvas></div>
+    <p class="chart-note">Thang đo: 1–10 (Xác suất × Tác động). Nguồn: Đánh giá của chuyên gia.</p>
+  </div>
+
+  <h3>7.1. Ma trận rủi ro chi tiết</h3>
+  <div class="risk-matrix">
+    <div class="risk-cell risk-head"></div>
+    <div class="risk-cell risk-head">Tác động thấp</div>
+    <div class="risk-cell risk-head">Tác động trung bình</div>
+    <div class="risk-cell risk-head">Tác động cao</div>
+
+    <div class="risk-cell risk-label">Xác suất cao</div>
+    <div class="risk-cell risk-med">Biến động dầu thô</div>
+    <div class="risk-cell risk-high">Đáo hạn TPDN BĐS</div>
+    <div class="risk-cell risk-high">Khối ngoại bán ròng</div>
+
+    <div class="risk-cell risk-label">Xác suất trung bình</div>
+    <div class="risk-cell risk-low">Cạnh tranh thương mại</div>
+    <div class="risk-cell risk-med">Nợ xấu BĐS tăng</div>
+    <div class="risk-cell risk-high">Fed giữ lãi suất cao</div>
+
+    <div class="risk-cell risk-label">Xác suất thấp</div>
+    <div class="risk-cell risk-low">Thiên tai cục bộ</div>
+    <div class="risk-cell risk-med">Lạm phát vượt mục tiêu</div>
+    <div class="risk-cell risk-high">Xung đột địa chính trị</div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 8 - KỊCH BẢN ==================== -->
+<section id="s8">
+  <h2 class="section-title"><span class="num">VIII</span>Kịch bản đến tháng 3/2027</h2>
+
+  <div class="chart-card">
+    <h4>Biểu đồ 12 – Cây xác suất các kịch bản (Probability Tree)</h4>
+    <div class="chart-wrap tall"><canvas id="chartScenarios"></canvas></div>
+    <p class="chart-note">Nguồn: Mô hình xác suất có điều kiện của chuyên gia.</p>
+  </div>
+
+  <div class="scenario-card scenario-base">
+    <h4>KỊCH BẢN CƠ SỞ <span class="prob-badge prob-base">55%</span></h4>
+    <p><b>Điều kiện:</b> Fed cắt giảm lãi suất 1–2 lần; kinh tế toàn cầu không suy thoái; NHNN duy trì chính sách tiền tệ ổn định; FTSE triển khai nâng hạng đúng lộ trình.</p>
+    <table>
+      <tr><td>GDP 2026 / 2027</td><td class="num-cell"><b>7,8% / 7,6%</b></td></tr>
+      <tr><td>Lạm phát 2026 / 2027</td><td class="num-cell"><b>4,3% / 4,0%</b></td></tr>
+      <tr><td>Tỷ giá USD/VND</td><td class="num-cell"><b>26.300 – 27.000</b></td></tr>
+      <tr><td>VN-Index (3/2027)</td><td class="num-cell"><b>1.950 – 2.100</b></td></tr>
+      <tr><td>Giá BĐS chung cư</td><td class="num-cell"><b>+5 – 10%/năm</b></td></tr>
+      <tr><td>Dòng vốn ngoại</td><td class="num-cell"><b>+2 – 3 tỷ USD</b></td></tr>
+    </table>
+  </div>
+
+  <div class="scenario-card scenario-bull">
+    <h4>KỊCH BẢN TÍCH CỰC <span class="prob-badge prob-bull">25%</span></h4>
+    <p><b>Điều kiện:</b> Fed giảm lãi suất mạnh hơn; dòng vốn ngoại đổ vào sau nâng hạng FTSE mạnh mẽ; giải ngân đầu tư công bứt phá; GDP đạt &gt;8,5%.</p>
+    <table>
+      <tr><td>GDP 2026 / 2027</td><td class="num-cell"><b>8,5 – 9,5% / 9%+</b></td></tr>
+      <tr><td>Lạm phát</td><td class="num-cell"><b>3,5 – 4,0%</b></td></tr>
+      <tr><td>Tỷ giá USD/VND</td><td class="num-cell"><b>25.900 – 26.300</b></td></tr>
+      <tr><td>VN-Index (3/2027)</td><td class="num-cell"><b>2.200 – 2.500</b></td></tr>
+      <tr><td>Giá BĐS chung cư</td><td class="num-cell"><b>+10 – 15%/năm</b></td></tr>
+      <tr><td>Dòng vốn ngoại</td><td class="num-cell"><b>+4 – 6 tỷ USD</b></td></tr>
+    </table>
+  </div>
+
+  <div class="scenario-card scenario-bear">
+    <h4>KỊCH BẢN TIÊU CỰC <span class="prob-badge prob-bear">20%</span></h4>
+    <p><b>Điều kiện:</b> Fed giữ lãi suất cao lâu hơn; địa chính trị leo thang; khối ngoại bán ròng mạnh; nợ xấu BĐS tăng vọt.</p>
+    <table>
+      <tr><td>GDP 2026 / 2027</td><td class="num-cell"><b>6,5 – 7,0%</b></td></tr>
+      <tr><td>Lạm phát</td><td class="num-cell"><b>4,5 – 5,0%</b></td></tr>
+      <tr><td>Tỷ giá USD/VND</td><td class="num-cell"><b>27.500 – 28.500</b></td></tr>
+      <tr><td>VN-Index (3/2027)</td><td class="num-cell"><b>1.600 – 1.750</b></td></tr>
+      <tr><td>Giá BĐS chung cư</td><td class="num-cell"><b>-5 – 0%</b></td></tr>
+      <tr><td>Dòng vốn ngoại</td><td class="num-cell"><b>Tiếp tục bán ròng</b></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== SECTION 9 - KHUYẾN NGHỊ ==================== -->
+<section id="s9">
+  <h2 class="section-title"><span class="num">IX</span>Khuyến nghị chiến lược</h2>
+
+  <h3>9.1. Đối với Nhà đầu tư cá nhân</h3>
+  <div class="rec-block">
+    <h4>📈 Chứng khoán</h4>
+    <ul>
+      <li><b>Phân bổ khuyến nghị:</b> 60% cổ phiếu blue-chip (ngân hàng, hạ tầng, tiêu dùng), 25% trái phiếu doanh nghiệp chất lượng cao, 15% tiền mặt.</li>
+      <li><b>Tận dụng nâng hạng FTSE:</b> Ưu tiên các cổ phiếu có tiềm năng vào rổ chỉ số FTSE (VNM, VIC, HPG, FPT, MWG...).</li>
+      <li><b>Chiến lược DCA:</b> Giải ngân theo tháng, tránh all-in một thời điểm.</li>
+      <li><b>Stop-loss:</b> Cắt lỗ ở mức 15–20% cho mỗi vị thế để bảo toàn vốn.</li>
+    </ul>
+  </div>
+
+  <div class="rec-block">
+    <h4>🏠 Bất động sản</h4>
+    <ul>
+      <li><b>Mua để ở:</b> Cân nhắc kỹ bài toán lãi suất dài hạn (13–17%/năm sau ưu đãi). Ưu tiên dự án pháp lý hoàn chỉnh, chủ đầu tư uy tín.</li>
+      <li><b>Mua để đầu tư:</b> <span class="badge badge-red">Hết sức thận trọng</span> Không dùng đòn bẩy &gt;50%. Chỉ đầu tư khu vực có hạ tầng thực và nhu cầu thuê thực.</li>
+      <li><b>Tránh:</b> Đầu cơ lướt sóng, đất nền vùng xa, sản phẩm nghỉ dưỡng cao cấp.</li>
+      <li><b>Cân nhắc:</b> Thuê nhà thay vì vay mua trong bối cảnh lãi suất cao.</li>
+    </ul>
+  </div>
+
+  <div class="rec-block">
+    <h4>💰 Tài chính cá nhân</h4>
+    <ul>
+      <li>Duy trì quỹ dự phòng 6–12 tháng chi tiêu.</li>
+      <li>Nắm bắt gói tín dụng nhà ở xã hội lãi suất <b>6,5%/năm</b> nếu đủ điều kiện.</li>
+      <li>Phòng ngừa rủi ro tỷ giá bằng cách đa dạng hóa tài sản (USD, vàng).</li>
+    </ul>
+  </div>
+
+  <h3>9.2. Đối với Doanh nghiệp</h3>
+  <div class="rec-block">
+    <h4>🏢 Doanh nghiệp bất động sản</h4>
+    <ul>
+      <li>Đẩy nhanh hoàn thiện pháp lý dự án để tận dụng chu kỳ hồi phục.</li>
+      <li>Tái cấu trúc sản phẩm hướng về nhu cầu thực (căn hộ bình dân, NOXH).</li>
+      <li>Quản trị dòng tiền chặt chẽ; giảm đòn bẩy; theo dõi sát lịch đáo hạn trái phiếu.</li>
+      <li>Tận dụng kênh trái phiếu huy động vốn trung dài hạn (thị trường đang phục hồi mạnh +147% YoY).</li>
+    </ul>
+  </div>
+
+  <div class="rec-block">
+    <h4>🏭 Doanh nghiệp sản xuất, xuất khẩu</h4>
+    <ul>
+      <li>Sử dụng công cụ hedging (forward, option) trước nguy cơ tỷ giá biến động.</li>
+      <li>Tận dụng EVFTA, CPTPP, RCEP để mở rộng thị trường.</li>
+      <li>Đẩy mạnh chuyển đổi số và nâng cao năng suất.</li>
+    </ul>
+  </div>
+
+  <div class="rec-block">
+    <h4>📊 Doanh nghiệp niêm yết</h4>
+    <ul>
+      <li>Nâng cao chuẩn mực quản trị, công bố song ngữ để đáp ứng NĐT quốc tế.</li>
+      <li>Tăng tỷ lệ free-float để đáp ứng tiêu chuẩn chỉ số quốc tế.</li>
+      <li>Minh bạch hóa thông tin ESG – yêu cầu ngày càng cao từ quỹ ngoại.</li>
+    </ul>
+  </div>
+
+  <h3>9.3. Đối với Chính phủ và cơ quan quản lý</h3>
+  <div class="rec-block">
+    <h4>🏛️ Chính sách tiền tệ</h4>
+    <ul>
+      <li>Duy trì chính sách tiền tệ chủ động, linh hoạt; sẵn sàng can thiệp ổn định tỷ giá.</li>
+      <li>Kiểm soát tăng trưởng tín dụng hợp lý (15–19%); giám sát chặt tín dụng BĐS.</li>
+      <li>Giữ lãi suất điều hành 4,5% để hỗ trợ doanh nghiệp.</li>
+    </ul>
+  </div>
+
+  <div class="rec-block">
+    <h4>💼 Chính sách tài khóa</h4>
+    <ul>
+      <li>Đẩy nhanh giải ngân đầu tư công; ưu tiên hạ tầng chiến lược (đường sắt tốc độ cao, cao tốc, cảng biển).</li>
+      <li>Gia hạn miễn/giảm thuế GTGT, thuế bảo vệ môi trường.</li>
+      <li>Tăng chi cho an sinh xã hội, giáo dục, y tế để kích cầu nội địa.</li>
+    </ul>
+  </div>
+
+  <div class="rec-block">
+    <h4>📋 Cải cách thể chế</h4>
+    <ul>
+      <li>Hoàn thiện khung pháp lý và hạ tầng giao dịch chứng khoán (CCP, T+0).</li>
+      <li>Nới room ngoại tại các ngành phù hợp để thu hút dòng vốn quốc tế.</li>
+      <li>Đẩy nhanh lộ trình nâng hạng MSCI.</li>
+      <li>Hoàn thiện nghị định hướng dẫn Luật Đất đai 2024, tập trung vào định giá đất.</li>
+      <li>Tăng cường minh bạch dữ liệu BĐS để hạn chế đầu cơ.</li>
+      <li>Phát triển nhà ở xã hội – nguồn cung còn rất hạn chế so với nhu cầu.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== SECTION 10 - PHỤ LỤC ==================== -->
+<section id="s10">
+  <h2 class="section-title"><span class="num">X</span>Phụ lục dữ liệu</h2>
+
+  <h3>10.1. Bảng tổng hợp dữ liệu vĩ mô</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Chỉ tiêu</th>
+        <th class="num-cell">2025 (ước)</th>
+        <th class="num-cell">2026 (dự báo)</th>
+        <th class="num-cell">2027 (dự báo)</th>
+        <th>Nguồn</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>GDP (%)</td><td class="num-cell">7,5</td><td class="num-cell">7,8 – 9,5</td><td class="num-cell">7,6 – 11,0</td><td>ADB / SC</td></tr>
+      <tr><td>Lạm phát (%)</td><td class="num-cell">3,5</td><td class="num-cell">4,3 – 4,4</td><td class="num-cell">3,3 – 4,0</td><td>ADB / SC</td></tr>
+      <tr><td>Tỷ giá (VND/USD)</td><td class="num-cell">26.550</td><td class="num-cell">26.300 – 27.000</td><td class="num-cell">25.900 – 27.100</td><td>UOB / VPBankS</td></tr>
+      <tr><td>Lãi suất tái cấp vốn (%)</td><td class="num-cell">4,5</td><td class="num-cell">4,5</td><td class="num-cell">4,5</td><td>UOB</td></tr>
+      <tr><td>Tăng trưởng tín dụng (%)</td><td class="num-cell">15</td><td class="num-cell">15 – 19</td><td class="num-cell">15 – 18</td><td>NHNN</td></tr>
+      <tr><td>VN-Index (điểm)</td><td class="num-cell">1.650</td><td class="num-cell">1.950 – 2.100</td><td class="num-cell">2.000 – 2.300</td><td>Đa nguồn</td></tr>
+    </tbody>
+  </table>
+
+  <h3>10.2. Danh mục từ viết tắt</h3>
+  <table>
+    <thead><tr><th>Từ viết tắt</th><th>Diễn giải</th></tr></thead>
+    <tbody>
+      <tr><td>ADB</td><td>Asian Development Bank – Ngân hàng Phát triển Châu Á</td></tr>
+      <tr><td>BOP</td><td>Balance of Payments – Cán cân thanh toán tổng thể</td></tr>
+      <tr><td>BĐS</td><td>Bất động sản</td></tr>
+      <tr><td>CPI</td><td>Consumer Price Index – Chỉ số giá tiêu dùng</td></tr>
+      <tr><td>DCA</td><td>Dollar-Cost Averaging – Trung bình giá</td></tr>
+      <tr><td>FDI</td><td>Foreign Direct Investment – Đầu tư trực tiếp nước ngoài</td></tr>
+      <tr><td>FTSE</td><td>Financial Times Stock Exchange – Chỉ số chứng khoán Anh</td></tr>
+      <tr><td>GARCH</td><td>Generalized Autoregressive Conditional Heteroskedasticity</td></tr>
+      <tr><td>GDP</td><td>Gross Domestic Product – Tổng sản phẩm quốc nội</td></tr>
+      <tr><td>MSCI</td><td>Morgan Stanley Capital International</td></tr>
+      <tr><td>NHNN</td><td>Ngân hàng Nhà nước Việt Nam</td></tr>
+      <tr><td>NOXH</td><td>Nhà ở xã hội</td></tr>
+      <tr><td>P/E</td><td>Price-to-Earnings ratio – Tỷ số giá trên thu nhập</td></tr>
+      <tr><td>TPDN</td><td>Trái phiếu doanh nghiệp</td></tr>
+      <tr><td>VAR</td><td>Vector Autoregression</td></tr>
+      <tr><td>VN-Index</td><td>Chỉ số chứng khoán sàn HOSE</td></tr>
+    </tbody>
+  </table>
+
+  <h3>10.3. Tuyên bố miễn trách nhiệm</h3>
+  <p style="font-size:13px;color:#5a6b7f;font-style:italic;">
+    Báo cáo này được tổng hợp từ các nguồn dữ liệu công khai bao gồm báo cáo của ADB, Standard Chartered, VNDirect, SSI Research, UOB, VPBankS, Maybank, KBSV, ACBS, VDSC, CBRE, Savills, One Mount, VIS Rating, Ngân hàng Nhà nước và các cơ quan truyền thông tài chính uy tín. Các mô hình định lượng (Monte Carlo, ARIMA, GARCH, VAR) được áp dụng dựa trên dữ liệu lịch sử và giả định về điều kiện thị trường. Kết quả dự báo mang tính xác suất, không phải cam kết về hiệu suất đầu tư trong tương lai. Báo cáo không phải là khuyến nghị mua/bán chứng khoán cụ thể. Nhà đầu tư cần tự đánh giá và chịu trách nhiệm về quyết định của mình. Mọi quyết định đầu tư cần dựa trên phân tích cá nhân và khẩu vị rủi ro của từng người.
+  </p>
+</section>
+
+<!-- ==================== SECTION 11 - KẾT LUẬN ==================== -->
+<section id="s11">
+  <h2 class="section-title"><span class="num">XI</span>Kết luận và Tầm nhìn chiến lược</h2>
+
+  <p style="font-size:15.5px;line-height:1.9;text-align:justify;">
+    Sau khi phân tích toàn diện bối cảnh kinh tế vĩ mô, thị trường chứng khoán, thị trường bất động sản, thị trường trái phiếu doanh nghiệp, cùng với việc ứng dụng các mô hình định lượng hiện đại (Monte Carlo, ARIMA-GARCH, VAR) và xây dựng ma trận rủi ro đa chiều, báo cáo này đi đến những kết luận mang tính chiến lược cho giai đoạn đến tháng 3/2027. Đây là giai đoạn bản lề quan trọng, đánh dấu sự chuyển dịch của nền kinh tế Việt Nam từ <b>"phục hồi sau biến động"</b> sang <b>"tăng trưởng chất lượng cao"</b> — một mô hình tăng trưởng mới được định hình bởi ba trụ cột: ổn định vĩ mô, dòng vốn quốc tế và nhu cầu thực của nền kinh tế.
+  </p>
+
+  <h3>11.1. Những kết luận cốt lõi</h3>
+
+  <p><b>Thứ nhất, nền tảng vĩ mô Việt Nam đang ở trạng thái vững chắc nhất trong hơn một thập kỷ.</b> Thặng dư cán cân thanh toán tổng thể (BOP) dự phóng đạt 47,8 tỷ USD — mức cao nhất lịch sử — kết hợp với tỷ giá được dự báo chỉ biến động trong biên độ ±1% đã tạo ra một "vùng đệm" vĩ mô quan trọng. Điều này cho phép Ngân hàng Nhà nước duy trì chính sách tiền tệ ổn định ở mức lãi suất tái cấp vốn 4,50%, đồng thời mở ra dư địa cho chính sách tài khóa đóng vai trò lực đẩy tăng trưởng. Tăng trưởng GDP 2026 được dự báo đạt 7,8% (ADB) và có thể lên tới 9,5% (Standard Chartered) — mức tăng trưởng thuộc nhóm cao nhất khu vực ASEAN. Đây không phải là tăng trưởng dựa trên một động lực đơn lẻ, mà là tăng trưởng đa trụ cột với sự đóng góp đồng đều từ sản xuất, xuất khẩu, tiêu dùng nội địa và đầu tư công.</p>
+
+  <p><b>Thứ hai, sự kiện nâng hạng FTSE Russell (21/9/2026) mở ra một "siêu chu kỳ" dòng vốn ngoại cho thị trường chứng khoán Việt Nam.</b> Với lộ trình triển khai bốn giai đoạn và tổng dòng vốn ước tính 1,5–6 tỷ USD, đây là cú hích mang tính cấu trúc chứ không phải chu kỳ. Tuy nhiên, nghịch lý khối ngoại bán ròng 4.341 tỷ đồng ngay tuần đầu sau nâng hạng và tỷ lệ sở hữu nước ngoài giảm xuống mức đáy lịch sử 13,2% phản ánh một thực tế quan trọng: <b>dòng vốn ngoại sẽ đến từ từ và có chọn lọc, không ồ ạt</b>. Điều này đòi hỏi Việt Nam phải tiếp tục hoàn thiện khung pháp lý, nới room ngoại và nâng cao chuẩn mực quản trị doanh nghiệp để chuyển hóa tiềm năng thành hiện thực. Dòng vốn nội với hơn 11 triệu tài khoản chứng khoán (10,6% dân số) đang đóng vai trò trụ cột, và đây chính là nền tảng bền vững cho sự phát triển dài hạn của thị trường.</p>
+
+  <p><b>Thứ ba, thị trường bất động sản đang bước vào chu kỳ tái cấu trúc sâu sắc, với sự phân hóa rõ nét giữa các phân khúc và khu vực.</b> Mô hình tăng trưởng cũ dựa trên đòn bẩy tài chính cao, đầu cơ ngắn hạn và phân khúc cao cấp đã không còn phù hợp. Thay vào đó, thị trường đang chuyển dịch sang mô hình mới: <b>lấy nhu cầu ở thực làm trung tâm, pháp lý hoàn chỉnh làm nền tảng, và dòng tiền bền vững làm động lực</b>. Giá căn hộ tại Hà Nội và TP.HCM được dự báo tiếp tục tăng nhưng tốc độ đã chậm lại rõ rệt (+5–10%/năm so với mức +30–46%/năm của giai đoạn trước). Tuy nhiên, hai rủi ro then chốt cần được giám sát chặt chẽ: (1) áp lực đáo hạn 116.535 tỷ đồng trái phiếu BĐS trong phần còn lại của năm 2026, và (2) lãi suất vay mua nhà đã leo lên mức thực tế 13–17%/năm, tạo gánh nặng lớn cho người mua nhà và làm gia tăng xu hướng chuyển từ mua sang thuê ở nhóm người trẻ.</p>
+
+  <p><b>Thứ tư, kết quả mô hình Monte Carlo với 10.000 kịch bản mô phỏng xác nhận VN-Index có xác suất 50% đạt mức ≥1.943 điểm đến cuối năm 2026, và xác suất 68% vượt mốc 1.750 điểm.</b> Định giá P/E toàn thị trường ở mức 15,6 lần — tương đương trung bình 10 năm và hấp dẫn so với khu vực — cho thấy thị trường vẫn còn dư địa tăng trưởng. Mức VN-Index mục tiêu 2.099 điểm (VNDirect) không phải là con số viển vông mà có cơ sở định lượng rõ ràng. Bên cạnh đó, mô hình GARCH(1,1) cho thấy biến động thị trường đang trong xu hướng giảm dần, từ mức 25% (tháng 4/2026) xuống còn khoảng 13% (dự báo quý I/2027) — một tín hiệu tích cực cho nhà đầu tư dài hạn.</p>
+
+  <h3>11.2. Ba kịch bản và xác suất</h3>
+
+  <div class="callout gold">
+    <strong>Tổng hợp xác suất các kịch bản đến tháng 3/2027</strong>
+    <b>Kịch bản cơ sở (55%):</b> VN-Index 1.950–2.100 điểm, GDP 7,8%, tỷ giá 26.300–27.000, BĐS tăng +5–10%.<br>
+    <b>Kịch bản tích cực (25%):</b> VN-Index 2.200–2.500 điểm, GDP &gt;8,5%, dòng ngoại +4–6 tỷ USD, BĐS tăng +10–15%.<br>
+    <b>Kịch bản tiêu cực (20%):</b> VN-Index 1.600–1.750 điểm, GDP 6,5–7,0%, tỷ giá 27.500–28.500, BĐS đi ngang hoặc giảm.
+  </div>
+
+  <p>Tổng hợp ba kịch bản cho thấy <b>kỳ vọng toán học</b> của VN-Index đến tháng 3/2027 vào khoảng 2.020 điểm (bình quân gia quyền xác suất), tương ứng mức tăng trưởng kỳ vọng khoảng 9–10% so với mức hiện tại 1.850 điểm. Đây là mức sinh lời hấp dẫn so với lãi suất tiền gửi (5,7%/năm) và lợi suất trái phiếu chính phủ (khoảng 3,5%/năm), đặc biệt khi tính đến yếu tố rủi ro đã được điều chỉnh. Đối với bất động sản, kỳ vọng sinh lời trung bình ở mức 6–10%/năm tại các đô thị lớn — thấp hơn đáng kể so với giai đoạn 2020–2022, phản ánh sự trưởng thành và ổn định hóa của thị trường.</p>
+
+  <h3>11.3. Tầm nhìn chiến lược 2026–2027</h3>
+
+  <p>Nhìn về trung hạn, giai đoạn đến tháng 3/2027 sẽ là <b>"bản lề chuyển tiếp"</b> của nền kinh tế Việt Nam theo ba hướng chính:</p>
+
+  <p><b>① Từ tăng trưởng theo chiều rộng sang tăng trưởng theo chiều sâu.</b> Chất lượng tăng trưởng đang dần được cải thiện thông qua chuyển đổi số, nâng cao năng suất lao động, và dịch chuyển lên các nấc thang cao hơn trong chuỗi giá trị toàn cầu. Dòng vốn FDI không còn chỉ tập trung vào gia công đơn giản mà đang dịch chuyển sang các ngành công nghệ cao, bán dẫn và năng lượng tái tạo.</p>
+
+  <p><b>② Từ thị trường cận biên sang thị trường mới nổi.</b> Việc FTSE Russell nâng hạng Việt Nam không chỉ là câu chuyện dòng vốn ngắn hạn, mà là sự công nhận về chất lượng thể chế, minh bạch thị trường và tiêu chuẩn quản trị. Đây là nền tảng để Việt Nam tiến tới mục tiêu tiếp theo: nâng hạng MSCI và trở thành thị trường mới nổi đầy đủ vào giai đoạn 2028–2030.</p>
+
+  <p><b>③ Từ bất động sản đầu cơ sang bất động sản phục vụ nhu cầu thực.</b> Chu kỳ tái cấu trúc hiện tại đang tạo ra một thị trường lành mạnh hơn, nơi giá trị thực của sản phẩm, pháp lý minh bạch và khả năng sinh lời từ cho thuê được đặt lên hàng đầu. Phân khúc nhà ở xã hội, căn hộ bình dân và nhà ở thương mại giá phải chăng sẽ là động lực tăng trưởng chính của thập kỷ tới.</p>
+
+  <h3>11.4. Thông điệp cuối cùng</h3>
+
+  <div class="callout green">
+    <strong>Ba thông điệp then chốt cho nhà đầu tư và doanh nghiệp</strong>
+    <b>1. Kiên nhẫn và kỷ luật</b> – Đây là giai đoạn của nhà đầu tư dài hạn, không phải của nhà đầu cơ ngắn hạn. Chiến lược DCA (trung bình giá) và phân bổ tài sản đa dạng sẽ vượt trội so với việc cố gắng "bắt đáy" hay "đu đỉnh".<br><br>
+    <b>2. Ưu tiên chất lượng hơn số lượng</b> – Cả trên thị trường chứng khoán lẫn bất động sản, doanh nghiệp/tài sản có nền tảng cơ bản tốt, pháp lý hoàn chỉnh và dòng tiền bền vững sẽ được định giá cao hơn. Xu hướng "flight to quality" (tìm đến chất lượng) đang diễn ra rõ nét.<br><br>
+    <b>3. Quản trị rủi ro là ưu tiên số một</b> – Trong bối cảnh lãi suất biến động và áp lực đáo hạn trái phiếu còn lớn, việc duy trì đòn bẩy hợp lý, quỹ dự phòng đầy đủ và đa dạng hóa danh mục là yếu tố sống còn.
+  </div>
+
+  <p style="font-size:15.5px;line-height:1.9;text-align:justify;">
+    Việt Nam đang đứng trước một trong những cơ hội chiến lược lớn nhất trong vòng hai thập kỷ. Với nền tảng vĩ mô vững chắc, dòng vốn quốc tế đang quay trở lại, và một thế hệ nhà đầu tư nội địa mới được đào tạo bài bản hơn, thị trường tài chính – chứng khoán – bất động sản Việt Nam có đủ điều kiện để bước vào một chu kỳ tăng trưởng bền vững kéo dài 5–7 năm. Tuy nhiên, con đường phía trước không bằng phẳng. Rủi ro địa chính trị toàn cầu, áp lực lạm phát tiềm ẩn, và những điểm nghẽn về thể chế vẫn có thể làm chậm đà phục hồi. Điều quan trọng là các bên liên quan — từ nhà đầu tư cá nhân, doanh nghiệp đến cơ quan quản lý — cần hành động một cách <b>thận trọng, kỷ luật và có chiến lược</b>. Cơ hội là rất lớn, nhưng chỉ thuộc về những ai chuẩn bị tốt nhất.
+  </p>
+
+  <div class="callout">
+    <strong>Câu hỏi trọng tâm cho Quý I/2027</strong>
+    Liệu Fed có cắt giảm lãi suất đúng lộ trình? Liệu dòng vốn ngoại có thực sự quay trở lại sau nâng hạng FTSE? Liệu áp lực đáo hạn trái phiếu BĐS có được xử lý êm đẹp? Câu trả lời cho ba câu hỏi này sẽ định hình bức tranh thị trường trong 12–18 tháng tới. Báo cáo tiếp theo của chúng tôi (dự kiến phát hành Q1/2027) sẽ cập nhật diễn biến và điều chỉnh các kịch bản cho phù hợp với thực tế.
+  </div>
+
+  <div class="signature-box">
+    <p class="end-tag">— HẾT BÁO CÁO —</p>
+    <p class="report-name">Báo cáo Chiến lược Thị trường Tài chính – Chứng khoán – Bất động sản Việt Nam</p>
+    <p class="report-meta">Kỳ dự báo: Q4/2026 – Q1/2027 &nbsp;|&nbsp; Ngày phát hành: 01/10/2026 &nbsp;|&nbsp; Kỳ tiếp theo: Q1/2027</p>
+  </div>
+</section>
+
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+  <div class="footer-grid">
+    <div>
+      <strong>Về báo cáo này</strong>
+      Báo cáo Chiến lược cấp cao được xây dựng theo chuẩn mực của các investment bank quốc tế, kết hợp phân tích định tính, định lượng và mô hình dự báo xác suất. Báo cáo phục vụ mục đích nghiên cứu và tham khảo, không thay thế tư vấn đầu tư cá nhân hóa.
+    </div>
+    <div>
+      <strong>Đơn vị thực hiện</strong>
+      Phòng Nghiên cứu Chiến lược Thị trường — Báo cáo phát hành ngày 01/10/2026.<br>
+      Kỳ hạn dự báo: Q4/2026 – Q1/2027.<br>
+      Báo cáo tiếp theo: Q1/2027.
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+// ======================== CHART CONFIG ========================
+Chart.defaults.font.family = "'Segoe UI','Helvetica Neue',Arial,sans-serif";
+Chart.defaults.color = "#1a2a3a";
+Chart.defaults.plugins.legend.labels.usePointStyle = true;
+Chart.defaults.plugins.legend.labels.boxWidth = 8;
+Chart.defaults.plugins.legend.labels.padding = 14;
+Chart.defaults.plugins.legend.labels.font = {size:12};
+
+// 1. GDP
+new Chart(document.getElementById('chartGDP'), {
+  type:'bar',
+  data:{
+    labels:['2025 (ước)','2026 (ADB)','2026 (SC)','2027 (ADB)','2027 (SC)'],
+    datasets:[{
+      label:'Tăng trưởng GDP (%)',
+      data:[7.5,7.8,9.5,7.6,11.0],
+      backgroundColor:['#94a9c2','#1554a0','#1e8449','#1554a0','#1e8449'],
+      borderRadius:6,borderSkipped:false
+    }]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{y:{beginAtZero:true,grid:{color:'#eef2f7'},ticks:{callback:v=>v+'%'}}}}
+});
+
+// 2. CPI
+new Chart(document.getElementById('chartCPI'), {
+  type:'line',
+  data:{
+    labels:['2023','2024','2025 (ước)','2026 (ADB)','2026 (SC)','2027 (ADB)','2027 (SC)'],
+    datasets:[{
+      label:'Lạm phát (%)',
+      data:[3.25,3.63,3.5,4.3,4.4,4.0,3.3],
+      borderColor:'#c0392b',backgroundColor:'rgba(192,57,43,0.1)',
+      fill:true,tension:0.35,pointRadius:6,
+      pointBackgroundColor:'#c0392b',pointBorderColor:'#fff',pointBorderWidth:2
+    },{
+      label:'Mục tiêu NHNN',data:[4,4,4,4.5,4.5,4.5,4.5],
+      borderColor:'#c9a227',borderDash:[6,4],fill:false,tension:0,pointRadius:0
+    }]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom'}},
+    scales:{y:{beginAtZero:false,min:2.5,grid:{color:'#eef2f7'},ticks:{callback:v=>v+'%'}}}}
+});
+
+// 3. FX
+new Chart(document.getElementById('chartFX'), {
+  type:'line',
+  data:{
+    labels:['Q1/26','Q2/26','Q3/26','Q4/26','Q1/27','Q2/27','Q3/27','Q4/27'],
+    datasets:[
+      {label:'UOB (dự báo)',data:[26300,26200,26100,25900,25800,25750,25700,25650],
+       borderColor:'#1554a0',backgroundColor:'rgba(21,84,160,0.08)',fill:true,tension:0.35,pointRadius:5,pointBackgroundColor:'#1554a0'},
+      {label:'VPBankS (dự báo)',data:[26600,26650,26700,26700,26750,26700,26650,26600],
+       borderColor:'#1e8449',backgroundColor:'rgba(30,132,73,0.05)',fill:true,tension:0.35,pointRadius:5,pointBackgroundColor:'#1e8449'},
+      {label:'VNDirect (dự báo)',data:[26800,26950,27100,27100,27300,27450,27600,27778],
+       borderColor:'#c0392b',backgroundColor:'rgba(192,57,43,0.05)',fill:true,tension:0.35,pointRadius:5,pointBackgroundColor:'#c0392b'}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom'}},
+    scales:{y:{min:25400,max:28000,grid:{color:'#eef2f7'},ticks:{callback:v=>v.toLocaleString('vi-VN')}}}}
+});
+
+// 4. VN-Index
+new Chart(document.getElementById('chartVNIndex'), {
+  type:'bar',
+  data:{
+    labels:['SSI Research','Maybank','KBSV','ACBS','VDSC (cao)','VDSC (thấp)','VNDirect','MC Trung vị'],
+    datasets:[{
+      label:'VN-Index mục tiêu cuối 2026',
+      data:[1800,2040,2040,2040,2032,1712,2099,1943],
+      backgroundColor:(ctx)=>{
+        const v = ctx.raw;
+        if(v >= 2050) return '#1e8449';
+        if(v >= 1950) return '#1554a0';
+        if(v >= 1800) return '#6b8cae';
+        return '#c0392b';
+      },borderRadius:6,borderSkipped:false
+    }]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{y:{beginAtZero:false,min:1500,grid:{color:'#eef2f7'}}}}
+});
+
+// 5. FTSE Flow
+new Chart(document.getElementById('chartFTSE'), {
+  type:'bar',
+  data:{
+    labels:['GĐ1 (10%)','GĐ2 (20%)','GĐ3 (35%)','GĐ4 (35%)','Tổng cộng'],
+    datasets:[
+      {label:'Dòng vốn thụ động ước tính (triệu USD)',data:[150,300,525,525,1500],
+       backgroundColor:['#94a9c2','#6b8cae','#3d6f9e','#1554a0','#c9a227'],borderRadius:6,borderSkipped:false},
+      {label:'Kịch bản lạc quan (triệu USD)',data:[300,600,1050,1050,3000],
+       backgroundColor:'rgba(30,132,73,0.35)',borderRadius:6,borderSkipped:false}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom'}},
+    scales:{y:{beginAtZero:true,grid:{color:'#eef2f7'},ticks:{callback:v=>v.toLocaleString('vi-VN')}}}}
+});
+
+// 6. Flow Structure
+new Chart(document.getElementById('chartFlow'), {
+  type:'doughnut',
+  data:{
+    labels:['Nhà đầu tư cá nhân nội','Tổ chức nội','Khối ngoại','Tự doanh'],
+    datasets:[{data:[78,12,7,3],
+      backgroundColor:['#1554a0','#3d6f9e','#c9a227','#6b8cae'],
+      borderWidth:3,borderColor:'#fff'}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'right'},tooltip:{callbacks:{label:c=>c.label+': '+c.raw+'%'}}},
+    cutout:'62%'}
+});
+
+// 7. Real Estate
+new Chart(document.getElementById('chartRE'), {
+  type:'bar',
+  data:{
+    labels:['Hà Nội (trung tâm)','TP.HCM (trung tâm)','Bình Dương','Đồng Nai','Long An','Hải Phòng'],
+    datasets:[
+      {label:'Giá Q2/2026 (triệu đồng/m²)',data:[128,112,60,55,48,52],backgroundColor:'#1554a0',borderRadius:6,borderSkipped:false},
+      {label:'Giá Q2/2025 (triệu đồng/m²)',data:[88,98,45,42,38,40],backgroundColor:'#c9a227',borderRadius:6,borderSkipped:false}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom'}},
+    scales:{y:{beginAtZero:true,grid:{color:'#eef2f7'},ticks:{callback:v=>v+' tr'}}}}
+});
+
+// 8. Bond structure
+new Chart(document.getElementById('chartBond'), {
+  type:'pie',
+  data:{
+    labels:['Bất động sản','Ngân hàng','Năng lượng','Xây dựng','Khác'],
+    datasets:[{data:[42,18,12,10,18],
+      backgroundColor:['#c0392b','#1554a0','#c9a227','#3d6f9e','#94a9c2'],
+      borderWidth:3,borderColor:'#fff'}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'right'},tooltip:{callbacks:{label:c=>c.label+': '+c.raw+'%'}}}}
+});
+
+// 9. Monte Carlo
+const mcLabels = [];
+for(let i=1400;i<=2500;i+=50){mcLabels.push(i);}
+function norm(x,mu,sig){return Math.exp(-0.5*Math.pow((x-mu)/sig,2))/(sig*Math.sqrt(2*Math.PI));}
+let sum=0;
+const mcValues = mcLabels.map(l=>{const v=norm(l,1943,280);sum+=v;return v;});
+const mcPct = mcValues.map(v=>(v/sum*100).toFixed(2));
+
+new Chart(document.getElementById('chartMC'), {
+  type:'bar',
+  data:{
+    labels:mcLabels.map(l=>l.toLocaleString('vi-VN')),
+    datasets:[{
+      label:'Mật độ xác suất (%)',data:mcPct,
+      backgroundColor:(ctx)=>{
+        const v = parseInt(mcLabels[ctx.dataIndex]);
+        if(v < 1700) return 'rgba(192,57,43,0.75)';
+        if(v < 1950) return 'rgba(201,162,39,0.75)';
+        if(v < 2150) return 'rgba(21,84,160,0.75)';
+        return 'rgba(30,132,73,0.75)';
+      },borderRadius:2
+    }]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{title:items=>'VN-Index: '+items[0].label,label:c=>'Xác suất: '+c.raw+'%'}}},
+    scales:{y:{beginAtZero:true,grid:{color:'#eef2f7'},ticks:{callback:v=>v+'%'}},
+      x:{ticks:{maxRotation:90,minRotation:90,font:{size:9}}}}}
+});
+
+// 10. GARCH Volatility
+new Chart(document.getElementById('chartGarch'), {
+  type:'line',
+  data:{
+    labels:['T1/26','T2/26','T3/26','T4/26','T5/26','T6/26','T7/26','T8/26','T9/26','T10/26','T11/26','T12/26','T1/27','T2/27','T3/27'],
+    datasets:[
+      {label:'Biến động thực tế/dự báo (%)',data:[18,19,22,25,23,20,18,17,16,15,15,14,14,13,13],
+       borderColor:'#1554a0',backgroundColor:'rgba(21,84,160,0.12)',fill:true,tension:0.35,pointRadius:4,pointBackgroundColor:'#1554a0'},
+      {label:'Ngưỡng cảnh báo (20%)',data:Array(15).fill(20),
+       borderColor:'#c0392b',borderDash:[6,4],pointRadius:0,fill:false}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom'}},
+    scales:{y:{beginAtZero:true,grid:{color:'#eef2f7'},ticks:{callback:v=>v+'%'}}}}
+});
+
+// 11. Risk Heatmap
+new Chart(document.getElementById('chartRisk'), {
+  type:'bubble',
+  data:{
+    datasets:[
+      {label:'Fed giữ lãi suất cao',data:[{x:5,y:9,r:22}],backgroundColor:'rgba(192,57,43,0.7)'},
+      {label:'Địa chính trị leo thang',data:[{x:5,y:8.5,r:20}],backgroundColor:'rgba(192,57,43,0.65)'},
+      {label:'Đáo hạn TPDN BĐS',data:[{x:8,y:6,r:24}],backgroundColor:'rgba(201,162,39,0.75)'},
+      {label:'Nợ xấu BĐS tăng',data:[{x:5,y:6,r:18}],backgroundColor:'rgba(201,162,39,0.7)'},
+      {label:'Khối ngoại bán ròng',data:[{x:7,y:4,r:16}],backgroundColor:'rgba(21,84,160,0.6)'},
+      {label:'Lạm phát vượt mục tiêu',data:[{x:3,y:7,r:14}],backgroundColor:'rgba(201,162,39,0.6)'},
+      {label:'Biến động dầu thô',data:[{x:6,y:3,r:12}],backgroundColor:'rgba(107,140,174,0.6)'},
+      {label:'Cạnh tranh thương mại',data:[{x:4,y:4,r:12}],backgroundColor:'rgba(21,84,160,0.5)'}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'right',labels:{font:{size:11}}},tooltip:{callbacks:{label:c=>c.dataset.label+': XS='+c.raw.x+', TĐ='+c.raw.y}}},
+    scales:{x:{min:0,max:10,title:{display:true,text:'Xác suất (1–10)'},grid:{color:'#eef2f7'}},
+      y:{min:0,max:10,title:{display:true,text:'Tác động (1–10)'},grid:{color:'#eef2f7'}}}}
+});
+
+// 12. Scenario tree
+new Chart(document.getElementById('chartScenarios'), {
+  type:'bar',
+  data:{
+    labels:['Cơ sở (55%)','Tích cực (25%)','Tiêu cực (20%)'],
+    datasets:[
+      {label:'VN-Index trung vị',data:[2025,2350,1675],
+       backgroundColor:['#1554a0','#1e8449','#c0392b'],borderRadius:8,borderSkipped:false,yAxisID:'y'},
+      {label:'Xác suất (%)',data:[55,25,20],
+       backgroundColor:['rgba(21,84,160,0.3)','rgba(30,132,73,0.3)','rgba(192,57,43,0.3)'],
+       borderRadius:8,borderSkipped:false,yAxisID:'y1',type:'line',tension:0.3,
+       pointRadius:8,pointBackgroundColor:['#1554a0','#1e8449','#c0392b'],
+       borderColor:['#1554a0','#1e8449','#c0392b']}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom'}},
+    scales:{y:{beginAtZero:false,min:1400,max:2600,position:'left',title:{display:true,text:'VN-Index'},grid:{color:'#eef2f7'}},
+      y1:{beginAtZero:true,max:80,position:'right',title:{display:true,text:'Xác suất (%)'},grid:{display:false}}}}
+});
+</script>
+
+</body>
+</html>
